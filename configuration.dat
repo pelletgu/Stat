@@ -1,0 +1,72 @@
+//On charge le fichier avec le lien associé
+load("C:/Users/guillaume/Documents/GitHub/Stat/RentJAPDOWA.RData")
+
+//On affiche les différentes valeurs
+ls()
+
+----------Question 1------------
+
+
+####Etude des rentabilités journalières####
+
+#On affiche les différentes valeurs des valeurs journalières
+plot(RentJ$Dates,RentJ$Rt)
+
+#Calcul de la moyenne et de la variance
+m<- mean(RentJ$Rt)
+s<-sqrt(var(RentJ$Rt))
+
+#z est le densité
+z<-density(RentJ$Rt)
+plot(z)
+
+#y est la densité empirique calculée au même point -> calcul par la méthode du noyau ( on donne la fonction en des points)
+y<-dnorm(z$x,m,s)
+
+#On la trace
+lines(z$x,y,col='red')
+
+####Etude des rentabilités hebdomadaires####
+
+#On affiche les différentes valeurs des valeurs hebdomadaires
+plot(RentH$Dates,RentH$Rt)
+
+#Calcul de la moyenne et de la variance
+m<- mean(RentH$Rt)
+s<-sqrt(var(RentH$Rt))
+
+#z est le densité
+z<-density(RentH$Rt)
+plot(z)
+
+#y est la densité empirique calculée au même point -> calcul par la méthode du noyau ( on donne la fonction en des points)
+y<-dnorm(z$x,m,s)
+
+#On la trace concrètement
+lines(z$x,y,col='red')
+
+####Etude des rentabilités mensuelles####
+
+#On affiche les différentes valeurs des valeurs mensuelles
+plot(RentM$Dates,RentM$Rt)
+
+#Calcul de la moyenne et de la variance
+m<- mean(RentM$Rt)
+s<-sqrt(var(RentM$Rt))
+
+#z est le densité
+z<-density(RentM$Rt)
+plot(z)
+
+#y est la densité empirique calculée au même point -> calcul par la méthode du noyau ( on donne la fonction en des points)
+y<-dnorm(z$x,m,s)
+
+//On la trace concrètement
+lines(z$x,y,col='red')
+
+
+----------Question 2------------
+
+.libPaths(c(.libPaths(),"C:/Users/guillaume/Documents/GitHub/Stat")
+Res <- HMMFit(RentJ$Rt,(nstate=2))
+Summary(Res)
