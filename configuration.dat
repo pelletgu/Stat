@@ -14,7 +14,7 @@ plot(RentJ$Dates,RentJ$Rt)
 
 #Calcul de la moyenne et de la variance
 m<- mean(RentJ$Rt)
-s<-sqrt(var(RentJ$Rt))
+s<-sqrt(var(RentJ$Rt)) 
 
 #z est le densité
 z<-density(RentJ$Rt)
