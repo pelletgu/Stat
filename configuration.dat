@@ -1,5 +1,5 @@
 //On charge le fichier avec le lien associé
-load("C:/Users/guillaume/Documents/GitHub/Stat/RentJAPDOWA.RData")
+load("C:/Users/Fuchsg/Documents/GitHub/Stat/RentJAPDOWA.RData")
 
 //On affiche les différentes valeurs
 ls()
@@ -12,7 +12,7 @@ ls()
 #On affiche les différentes valeurs des valeurs journalières
 plot(RentJ$Dates,RentJ$Rt)
 
-#Calcul de la moyenne et de la variance
+#Calcul de la moyenne et de l'écart type
 m<- mean(RentJ$Rt)
 s<-sqrt(var(RentJ$Rt)) 
 
@@ -31,7 +31,7 @@ lines(z$x,y,col='red')
 #On affiche les différentes valeurs des valeurs hebdomadaires
 plot(RentH$Dates,RentH$Rt)
 
-#Calcul de la moyenne et de la variance
+#Calcul de la moyenne et de l'écart type
 m<- mean(RentH$Rt)
 s<-sqrt(var(RentH$Rt))
 
